@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/auth.php';
+require_once dirname(__DIR__) . '/config/auth.php';
 requireRole('admin', '/auth/login-admin.php');
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/koneksi.php';
+require_once dirname(__DIR__) . '/config/koneksi.php';
 
 function hitungTotal($koneksi, $table) {
     $result = mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM " . $table);
@@ -18,11 +18,11 @@ $total_jadwal = hitungTotal($koneksi, 'jadwal_sidang');
 $total_user = hitungTotal($koneksi, 'users');
 
 $page_title = "Dashboard Admin";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
+require dirname(__DIR__) . '/includes/header.php';
 ?>
 
 <div class="dashboard-wrapper">
-    <?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/sidebar-admin.php'; ?>
+    <?php require dirname(__DIR__) . '/includes/sidebar-admin.php'; ?>
 
     <div class="dashboard-content">
         <?php if (isset($_SESSION['success'])) : ?>
@@ -69,6 +69,6 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/script.js"></script>
+<script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
 </body>
 </html>

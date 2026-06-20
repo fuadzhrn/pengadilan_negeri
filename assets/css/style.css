@@ -87,7 +87,7 @@ main {
     position: relative;
     width: 100%;
     min-height: 85vh;
-    background-image: url('/assets/img/banner/gedung-pengadilan.jpg');
+    background-image: url('../img/banner/gedung-pengadilan.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

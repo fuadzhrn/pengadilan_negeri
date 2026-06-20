@@ -1,8 +1,8 @@
 <?php
 $page_title = "Pengumuman";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/config/koneksi.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
+require dirname(__DIR__) . '/config/koneksi.php';
 
 $data_pengumuman = [];
 $query = mysqli_query($koneksi, "SELECT * FROM pengumuman WHERE status = 'publish' ORDER BY tanggal_publish DESC");
@@ -77,4 +77,4 @@ if ($query && mysqli_num_rows($query) > 0) {
     </section>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>

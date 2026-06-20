@@ -1,7 +1,7 @@
 <?php
 $page_title = "Profil";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
 ?>
 
 <main>
@@ -121,4 +121,4 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
     </section>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>

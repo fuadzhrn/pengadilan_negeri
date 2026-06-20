@@ -1,8 +1,8 @@
 <?php
 $page_title = "Beranda";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/config/koneksi.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
+require dirname(__DIR__) . '/config/koneksi.php';
 
 $pengumuman_terbaru = [];
 $query = mysqli_query($koneksi, "SELECT * FROM pengumuman WHERE status = 'publish' ORDER BY tanggal_publish DESC LIMIT 3");
@@ -32,10 +32,10 @@ if ($query && mysqli_num_rows($query) > 0) {
             <h1>Sistem Informasi Layanan Pengadilan Negeri</h1>
             <p>Memberikan kemudahan akses informasi layanan, jadwal sidang, pengaduan, dan pengumuman secara online.</p>
             <div class="d-flex flex-wrap gap-3 mt-4">
-                <a href="/public/layanan.php" class="btn btn-gold">
+                <a href="<?php echo BASE_URL; ?>/public/layanan.php" class="btn btn-gold">
                     <i class="bi bi-clipboard-check me-2"></i>Lihat Layanan
                 </a>
-                <a href="/public/jadwal-sidang.php" class="btn btn-pn-outline">
+                <a href="<?php echo BASE_URL; ?>/public/jadwal-sidang.php" class="btn btn-pn-outline">
                     <i class="bi bi-calendar-event me-2"></i>Jadwal Sidang
                 </a>
             </div>
@@ -76,7 +76,7 @@ if ($query && mysqli_num_rows($query) > 0) {
                         <i class="bi bi-folder2-open service-icon"></i>
                         <h5>Informasi Perkara</h5>
                         <p>Akses informasi perkembangan perkara yang sedang berjalan di Pengadilan Negeri.</p>
-                        <a href="/public/layanan.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
+                        <a href="<?php echo BASE_URL; ?>/public/layanan.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -84,7 +84,7 @@ if ($query && mysqli_num_rows($query) > 0) {
                         <i class="bi bi-file-earmark-text service-icon"></i>
                         <h5>Permohonan Surat Keterangan</h5>
                         <p>Ajukan permohonan surat keterangan secara online dengan proses yang mudah.</p>
-                        <a href="/public/layanan.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
+                        <a href="<?php echo BASE_URL; ?>/public/layanan.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -92,7 +92,7 @@ if ($query && mysqli_num_rows($query) > 0) {
                         <i class="bi bi-megaphone service-icon"></i>
                         <h5>Pengaduan Masyarakat</h5>
                         <p>Sampaikan pengaduan terkait pelayanan pengadilan secara cepat dan transparan.</p>
-                        <a href="/public/layanan.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
+                        <a href="<?php echo BASE_URL; ?>/public/layanan.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -100,7 +100,7 @@ if ($query && mysqli_num_rows($query) > 0) {
                         <i class="bi bi-calendar2-week service-icon"></i>
                         <h5>Jadwal Sidang</h5>
                         <p>Pantau jadwal sidang perkara secara real-time dan akurat setiap saat.</p>
-                        <a href="/public/jadwal-sidang.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
+                        <a href="<?php echo BASE_URL; ?>/public/jadwal-sidang.php" class="btn btn-sm btn-gold mt-2">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@ if ($query && mysqli_num_rows($query) > 0) {
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center mt-4">
-                    <a href="/public/pengumuman.php" class="btn btn-gold">Lihat Semua Pengumuman</a>
+                    <a href="<?php echo BASE_URL; ?>/public/pengumuman.php" class="btn btn-gold">Lihat Semua Pengumuman</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -177,11 +177,11 @@ if ($query && mysqli_num_rows($query) > 0) {
     <section class="cta-section">
         <div class="container">
             <h3>Butuh layanan pengadilan secara online?</h3>
-            <a href="/auth/login-user.php" class="btn btn-gold">
+            <a href="<?php echo BASE_URL; ?>/auth/login-user.php" class="btn btn-gold">
                 <i class="bi bi-box-arrow-in-right me-2"></i>Ajukan Layanan
             </a>
         </div>
     </section>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>

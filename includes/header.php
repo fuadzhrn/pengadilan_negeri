@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/auth.php';
+require_once dirname(__DIR__) . '/config/auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -20,6 +20,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config/auth.php';
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 </head>
 <body>

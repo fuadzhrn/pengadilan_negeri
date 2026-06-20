@@ -1,8 +1,8 @@
 <?php
 $page_title = "Jadwal Sidang";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/config/koneksi.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
+require dirname(__DIR__) . '/config/koneksi.php';
 
 $data_jadwal = [];
 $query = mysqli_query($koneksi, "SELECT * FROM jadwal_sidang ORDER BY tanggal_sidang ASC, jam_sidang ASC");
@@ -78,4 +78,4 @@ function badgeStatusSidang($status) {
     </section>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>

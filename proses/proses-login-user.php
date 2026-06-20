@@ -1,13 +1,13 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/auth.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/koneksi.php';
+require_once dirname(__DIR__) . '/config/auth.php';
+require_once dirname(__DIR__) . '/config/koneksi.php';
 
 $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 
 if ($email === '' || $password === '') {
     $_SESSION['error'] = 'Email dan password wajib diisi.';
-    header('Location: /auth/login-user.php');
+    header('Location: ' . BASE_URL . '/auth/login-user.php');
     exit;
 }
 
@@ -20,19 +20,19 @@ mysqli_stmt_close($stmt);
 
 if (!$user || $user['role'] !== 'user') {
     $_SESSION['error'] = 'Email atau password salah.';
-    header('Location: /auth/login-user.php');
+    header('Location: ' . BASE_URL . '/auth/login-user.php');
     exit;
 }
 
 if ($user['status'] !== 'aktif') {
     $_SESSION['error'] = 'Akun Anda tidak aktif. Silakan hubungi pihak pengadilan.';
-    header('Location: /auth/login-user.php');
+    header('Location: ' . BASE_URL . '/auth/login-user.php');
     exit;
 }
 
 if (!password_verify($password, $user['password'])) {
     $_SESSION['error'] = 'Email atau password salah.';
-    header('Location: /auth/login-user.php');
+    header('Location: ' . BASE_URL . '/auth/login-user.php');
     exit;
 }
 
@@ -42,5 +42,5 @@ $_SESSION['email'] = $user['email'];
 $_SESSION['role'] = $user['role'];
 $_SESSION['status'] = $user['status'];
 
-header('Location: /user/dashboard.php');
+header('Location: ' . BASE_URL . '/user/dashboard.php');
 exit;

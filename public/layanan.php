@@ -1,8 +1,8 @@
 <?php
 $page_title = "Layanan";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/config/koneksi.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
+require dirname(__DIR__) . '/config/koneksi.php';
 
 $data_layanan = [];
 $query = mysqli_query($koneksi, "SELECT * FROM layanan WHERE status = 'aktif' ORDER BY id_layanan ASC");
@@ -53,7 +53,7 @@ if ($query && mysqli_num_rows($query) > 0) {
                                             <?php echo htmlspecialchars($layanan['estimasi_waktu'] ?: '-'); ?>
                                         </li>
                                     </ul>
-                                    <a href="/auth/login-user.php" class="btn btn-gold mt-auto">
+                                    <a href="<?php echo BASE_URL; ?>/auth/login-user.php" class="btn btn-gold mt-auto">
                                         <i class="bi bi-send me-2"></i>Ajukan Layanan
                                     </a>
                                 </div>
@@ -70,4 +70,4 @@ if ($query && mysqli_num_rows($query) > 0) {
     </section>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>

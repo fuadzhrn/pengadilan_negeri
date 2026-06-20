@@ -1,7 +1,7 @@
 <?php
 $page_title = "Login Masyarakat";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
 ?>
 
 <main class="form-pn-wrapper">
@@ -21,7 +21,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
                             <div class="alert alert-danger alert-auto-hide"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
                         <?php endif; ?>
 
-                        <form action="/proses/proses-login-user.php" method="post">
+                        <form action="<?php echo BASE_URL; ?>/proses/proses-login-user.php" method="post">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
@@ -36,10 +36,10 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
                         </form>
 
                         <p class="text-center mt-3 mb-1">
-                            Belum punya akun? <a href="/auth/register.php">Daftar sekarang</a>
+                            Belum punya akun? <a href="<?php echo BASE_URL; ?>/auth/register.php">Daftar sekarang</a>
                         </p>
                         <p class="text-center mb-0">
-                            <a href="/public/index.php"><i class="bi bi-arrow-left me-1"></i>Kembali ke Beranda</a>
+                            <a href="<?php echo BASE_URL; ?>/public/index.php"><i class="bi bi-arrow-left me-1"></i>Kembali ke Beranda</a>
                         </p>
                     </div>
                 </div>
@@ -48,4 +48,4 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
     </div>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>

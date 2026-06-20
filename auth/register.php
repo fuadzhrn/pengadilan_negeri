@@ -1,7 +1,7 @@
 <?php
 $page_title = "Register Masyarakat";
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
+require dirname(__DIR__) . '/includes/header.php';
+require dirname(__DIR__) . '/includes/navbar.php';
 ?>
 
 <main class="form-pn-wrapper">
@@ -21,7 +21,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
                             <div class="alert alert-danger alert-auto-hide"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
                         <?php endif; ?>
 
-                        <form action="/proses/proses-register.php" method="post">
+                        <form action="<?php echo BASE_URL; ?>/proses/proses-register.php" method="post">
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required>
@@ -54,7 +54,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
                         </form>
 
                         <p class="text-center mt-3 mb-0">
-                            Sudah punya akun? <a href="/auth/login-user.php">Login</a>
+                            Sudah punya akun? <a href="<?php echo BASE_URL; ?>/auth/login-user.php">Login</a>
                         </p>
                     </div>
                 </div>
@@ -63,4 +63,4 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.php';
     </div>
 </main>
 
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
+<?php require dirname(__DIR__) . '/includes/footer.php'; ?>
